@@ -1,9 +1,8 @@
 <% include ../partials/header %>
-    <div class="container newheading" style="text-align: center;">
-        <h1>Make a new Post</h1>
-    </div>
-        <div style="width: 30%; margin: 25px auto; margin-top: 2rem;">
-            <form action="/campgrounds" method="POST">
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= question.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/questions/<%=question._id%>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label for="title">Title<span style="color:red;" >*</span></label>
                     <input class="form-control" type="text" name="title" id="title" placeholder="Binary Search" required>
@@ -22,13 +21,14 @@
                 </div>
                 <div class="form-group" >
                     <label for="code">Code<span style="color:red ;">*</span></label><br>
-                    <textarea name="code" id="code" cols="60" rows="20" ></textarea>
+                    <textarea style="white-space:pre;" name="code" id="code" cols="60" rows="20" ></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-dark btn-block">Submit!</button>
                 </div>
             </form>
-            <a href="/campgrounds">Go Back</a>
+            <a href="/questions">Go Back</a>
         </div>
+    </div>
 <% include ../partials/footer %>
 

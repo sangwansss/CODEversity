@@ -1,15 +1,15 @@
 <% include ../partials/header %>
-        <h1 style="text-align: center">Add New Comment to <%= campground.title %></h1>
+        <h1 style="text-align: center">Add New Comment to <%= question.title %></h1>
         <div style="width: 30%; margin: 25px auto; margin-top: 2rem;">
-            <form action="/campgrounds/<%=campground._id%>/comments" method="POST">
+            <form action="/questions/<%=question._id%>/comments" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="comment[text]" placeholder="Text">
+                    <input class="form-control" type="text" name="comment[text]" placeholder="Text" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                 </div>
             </form>
-            <a href="/campgrounds">Go Back</a>
+            <a href="/questions">Go Back</a>
         </div>
 <% include ../partials/footer %>
 

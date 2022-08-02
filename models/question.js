@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var campgroundSchema = new mongoose.Schema({
+var questionSchema = new mongoose.Schema({
    title: String,
    difficulty: String,
    subtopic: String,
@@ -23,4 +23,4 @@ var campgroundSchema = new mongoose.Schema({
    
 });
 
-module.exports = mongoose.model("Campground", campgroundSchema);
+module.exports = mongoose.model("question", questionSchema);

@@ -3,21 +3,21 @@
   <div class="col-md-3">
     <p class="lead">CODEversity</p>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-9" >
     <div class="title" >
       <div class="caption-full">
         <h4 class="pull-right">
-          <%= campground.title %>
+          <%= question.title %>
         </h4>
-        <h4><a><%=campground.subtopic%></a></h4>
-        <h4><a><%=campground.difficulty%></a></h4>
-        <p style="white-space:pre-wrap"><%= campground.code %></p>
+        <h4><a><%=question.subtopic%></a></h4>
+        <h4><a><%=question.difficulty%></a></h4>
+        <p style="white-space:pre-wrap"><%= question.code %></p>
         <p>
-          <em>Submitted by: <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
+          <em>Submitted by: <%= question.author.username %>, <%= moment(question.createdAt).fromNow() %></em>
         </p>
-        <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
-        <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
+        <% if(currentUser && question.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
+        <a class="btn btn-warning" href="/questions/<%= question._id %>/edit">Edit</a>
+        <form action="/questions/<%= question._id %>?_method=DELETE" method="POST" class="delete-form">
           <button class="btn btn-danger">Delete</button>
         </form>
         <% } %>
@@ -25,10 +25,10 @@
     </div>
     <div class="well">
       <div class="text-right">
-        <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+        <a class="btn btn-success" href="/questions/<%= question._id %>/comments/new">Add New Comment</a>
       </div>
       <hr>
-      <% campground.comments.forEach(function(comment){ %>
+      <% question.comments.forEach(function(comment){ %>
       <div class="row">
         <div class="col-md-12">
           <strong><%= comment.author.username %></strong>
@@ -38,8 +38,8 @@
 
            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
             <div class="pull-right">
-              <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-warning">EDIT</a>
-              <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+              <a href="/questions/<%=question._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-warning">EDIT</a>
+              <form class="delete-form" action="/questions/<%=question._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
                 <button class="btn btn-xs btn-danger">DELETE</button>
               </form>
             </div>

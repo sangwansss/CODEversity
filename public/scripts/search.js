@@ -1,24 +1,24 @@
-$('#campground-search').on('input', function() {
+$('#question-search').on('input', function() {
   var search = $(this).serialize();
 
   if(search === "search="){
     search = "all"
   }
-  $.get('/campgrounds?' + search, function(data) {
-    $('#campground-grid').html('');
-    data.forEach(function(campground){
-      $('#campground-grid').append(`
+  $.get('/questions?' + search, function(data) {
+    $('#question-grid').html('');
+    data.forEach(function(question){
+      $('#question-grid').append(`
         <div class="col-md-3 col-sm-6">
           <div class="title">
-                        <h5>`+campground.title+`</h4>
+                        <h5>`+question.title+`</h4>
                    <div class="subtopic">
-                        <h5>`+ campground.subtopic+`</h4>
+                        <h5>`+ question.subtopic+`</h4>
                    </div>
                    <div class="difficulty">
-                        <h5>`+ campground.difficulty+`</h4>
+                        <h5>`+ question.difficulty+`</h4>
                    </div>
                    <p>
-                       <a href="/campgrounds/`+ campground._id+`" class="btn btn-primary">More Info</a>
+                       <a href="/questions/`+ question._id+`" class="btn btn-primary">More Info</a>
                    </p>
             </div>
         </div>
@@ -27,6 +27,6 @@ $('#campground-search').on('input', function() {
   });
 });
 
-$('#campground-search').submit(function(event) {
+$('#question-search').submit(function(event) {
   event.preventDefault();
 });

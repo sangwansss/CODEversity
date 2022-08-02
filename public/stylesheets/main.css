@@ -34,7 +34,7 @@ body {
     padding: 9px;
 }
 
-/* Campground show page delete button */
+/* question show page delete button */
 .delete-form {
 	display: inline-block;
 }
@@ -52,4 +52,9 @@ body {
 .headerlist li{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.backcolor{
+  
+  background-color:()
 }

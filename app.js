@@ -6,11 +6,10 @@ var express     = require("express"),
     cookieParser = require("cookie-parser"),
     LocalStrategy = require("passport-local"),
     flash        = require("connect-flash"),
-    Campground  = require("./models/campground"),
+    question  = require("./models/question"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     session = require("express-session"),
-    seedDB      = require("./seeds"),
     methodOverride = require("method-override"),
     lodash=require("lodash");
 // configure dotenv
@@ -18,7 +17,7 @@ require('dotenv').load();
 
 //requiring routes
 var commentRoutes    = require(__dirname+"/routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
+    questionRoutes = require("./routes/questions"),
     indexRoutes      = require("./routes/index")
     
 // assign mongoose promise library and connect to database
@@ -61,8 +60,8 @@ app.use(function(req, res, next){
 
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/questions", questionRoutes);
+app.use("/questions/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT||3000, process.env.IP, function(){
    console.log("The CODEcamp Server Has Started!");

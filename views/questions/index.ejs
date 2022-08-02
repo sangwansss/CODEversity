@@ -1,0 +1,51 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><i class="fa-solid fa-code"></i> Welcome To CODEversity!</h1>
+             <p>View our hand-picked questions from all over the world</p>
+             <p>
+                <a class="btn btn-primary btn-lg" href="/questions/new">Add New Question</a>
+             </p>
+              <p>
+              <form action="/questions" method="GET" class="form-inline" id="question-search">
+                <div class="form-group">
+                  <input type="text" name="search" placeholder="Question search..." class="form-control" autocomplete="off">
+                </div>
+              </form>
+             </p>
+         </div>
+     </header>
+     <script>
+        async function colorPick(diff)
+        {
+            if(diff==="Hard")
+            return red;
+            else if(deff==="Medium")
+            return yellow;
+            else
+            return green;
+        }
+    </script>
+     <div class="row text-center flex-wrap" id="question-grid" >
+        <% questions.forEach(function(question){ %>
+            <%const backcolor=(question.difficulty==="Easy")?'rgb(113, 241, 113)':((question.difficulty==="Hard")?'rgb(255, 97, 97)':'rgb(243, 243, 108)')%>
+           
+            <div class="col-md-3 col-sm-6"  >
+                <div class="title" style="background-color:<%=backcolor%>;" >
+                        <h5><%=question.title %></h4>
+                   <div class="subtopic">
+                        <h5><%= question.subtopic %></h4>
+                   </div>
+                   <div class="difficulty">
+                        <h5><%= question.difficulty %></h4>
+                   </div>
+                   <p>
+                       <a href="/questions/<%= question._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>
